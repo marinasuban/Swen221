@@ -1,3 +1,0 @@
-Manifest-Version: 1.0
-Main-Class: swen221.picturepuzzle.gui.PicturePuzzle
-
