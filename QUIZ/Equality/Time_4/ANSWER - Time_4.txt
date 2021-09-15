@@ -1,0 +1,41 @@
+public Time24 add1Hour() {
+    int updatedHour = hours + 1;
+    if (updatedHour >= 24) {
+        updatedHour %= 24;
+    }
+    return new Time24(seconds, minutes, updatedHour);
+}
+
+public Time24 remove1Hour() {
+    int updatedHour = hours - 1;
+    if (updatedHour < 0) {
+        updatedHour += 24;
+    }
+    return new Time24(seconds, minutes, updatedHour);
+}
+
+public Time24 add1Minute() {
+    int updatedMinutes = minutes + 1;
+    int updatedHour = hours;
+    if (updatedMinutes >= 60) {
+        updatedMinutes %= 60;
+        updatedHour = hours + 1;
+        if (updatedHour >= 24) {
+            updatedHour %= 24;
+        }
+    }
+    return new Time24(seconds, updatedMinutes, updatedHour);
+}
+
+public Time24 remove1Minute() {
+    int updatedMinutes = minutes - 1;
+    int updatedHour = hours;
+    if (updatedMinutes < 0) {
+        updatedMinutes += 60;
+        updatedHour = hours - 1;
+        if (updatedHour < 0) {
+            updatedHour += 24;
+        }
+    }
+    return new Time24(seconds, updatedMinutes, updatedHour);
+}
